@@ -332,4 +332,82 @@ object Task {
       fa5: Task[A5],
       fa6: Task[A6])(f: (A1, A2, A3, A4, A5, A6) => R): Task[R] =
     BIO.map6(fa1, fa2, fa3, fa4, fa5, fa6)(f)
+
+  /**
+   * @see See [[monix.bio.BIO.parMap2]]
+   */
+  def parMap2[A1, A2, R](fa1: Task[A1], fa2: Task[A2])(f: (A1, A2) => R): Task[R] =
+    BIO.parMap2(fa1, fa2)(f)
+
+  /**
+   * @see See [[monix.bio.BIO.parMap3]]
+   */
+  def parMap3[E, A1, A2, A3, R](fa1: Task[A1], fa2: Task[A2], fa3: Task[A3])(f: (A1, A2, A3) => R): Task[R] =
+    BIO.parMap3(fa1, fa2, fa3)(f)
+
+  /**
+   * @see See [[monix.bio.BIO.parMap4]]
+   */
+  def parMap4[E, A1, A2, A3, A4, R](fa1: Task[A1], fa2: Task[A2], fa3: Task[A3], fa4: Task[A4])(f: (A1, A2, A3, A4) => R): Task[R] =
+    BIO.parMap4(fa1, fa2, fa3, fa4)(f)
+
+  /**
+   * @see See [[monix.bio.BIO.parMap5]]
+   */
+  def parMap5[E, A1, A2, A3, A4, A5, R](fa1: Task[A1], fa2: Task[A2], fa3: Task[A3], fa4: Task[A4], fa5: Task[A5])(
+    f: (A1, A2, A3, A4, A5) => R): Task[R] =
+    BIO.parMap5(fa1, fa2, fa3, fa4, fa5)(f)
+
+  /**
+   * @see See [[monix.bio.BIO.parMap6]]
+   */
+  def parMap6[E, A1, A2, A3, A4, A5, A6, R](
+      fa1: Task[A1],
+      fa2: Task[A2],
+      fa3: Task[A3],
+      fa4: Task[A4],
+      fa5: Task[A5],
+      fa6: Task[A6])(f: (A1, A2, A3, A4, A5, A6) => R): Task[R] =
+    BIO.parMap6(fa1, fa2, fa3, fa4, fa5, fa6)(f)
+
+  /**
+   * @see See [[monix.bio.BIO.parZip2]]
+   */
+  def parZip2[A1, A2](fa1: Task[A1], fa2: Task[A2]): Task[(A1, A2)] =
+    BIO.parZip2(fa1, fa2)
+
+  /**
+   * @see See [[monix.bio.BIO.parZip3]]
+   */
+  def parZip3[A1, A2, A3](fa1: Task[A1], fa2: Task[A2], fa3: Task[A3]): Task[(A1, A2, A3)] =
+    BIO.parZip3(fa1, fa2, fa3)
+
+  /**
+   * @see See [[monix.bio.BIO.parZip4]]
+   */
+  def parZip4[A1, A2, A3, A4](fa1: Task[A1], fa2: Task[A2], fa3: Task[A3], fa4: Task[A4]): Task[(A1, A2, A3, A4)] =
+    BIO.parZip4(fa1, fa2, fa3, fa4)
+
+  /**
+   * @see See [[monix.bio.BIO.parZip5]]
+   */
+  def parZip5[A1, A2, A3, A4, A5](
+      fa1: Task[A1],
+      fa2: Task[A2],
+      fa3: Task[A3],
+      fa4: Task[A4],
+      fa5: Task[A5]): Task[(A1, A2, A3, A4, A5)] =
+    BIO.parZip5(fa1, fa2, fa3, fa4, fa5)
+
+  /**
+   * @see See [[monix.bio.BIO.parZip6]]
+   */
+  def parZip6[A1, A2, A3, A4, A5, A6](
+      fa1: Task[A1],
+      fa2: Task[A2],
+      fa3: Task[A3],
+      fa4: Task[A4],
+      fa5: Task[A5],
+      fa6: Task[A6]): Task[(A1, A2, A3, A4, A5, A6)] =
+    BIO.parZip6(fa1, fa2, fa3, fa4, fa5, fa6)
 }
